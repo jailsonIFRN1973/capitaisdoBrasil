@@ -3,8 +3,9 @@ from database import db
 from models.diario import Diario
 from flask import Blueprint
 
-dp_diario = Blueprint("diario", __name__, template_folder='templates')
+bp_diario = Blueprint("diario", __name__, template_folder='templates')
 
-@dp.diario.route('/recovery')
+@bp_diario.route('/recovery')
 def recovery():
-    return render_template('diario_recovery.html')
+    dados = Diario.query.all()
+    return render_template('diario_recovery.html', dados=dados)

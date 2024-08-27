@@ -3,9 +3,8 @@ from flask import Flask, render_template, request, redirect, url_for
 from database import db
 import os
 from flask_migrate import Migrate
-from diario import Diario
+from models.diario import Diario
 from controllers.diario import bp_diario
-
 
 
 app = Flask(__name__)
@@ -44,9 +43,9 @@ def select_diario():
 
 @app.route('/update_diario')
 def update_diario():
-    d = Diario.query.get(1)
+    d = Diario.query.get(4)
     d.titulo = "LICX866"
-    d.disciplina = "Segurança da Informação"
+    d.disciplina = "Segurança da Trabalho"
     db.session.add(d)
     db.session.commit()
     return 'Dados Atualizados com sucesso'
