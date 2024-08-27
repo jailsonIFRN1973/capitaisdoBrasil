@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block estilo %}
+
+    
+    body {
+       font-family: Arial, sans-serif;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh;
+       margin: 0;
+   }
+   
+   .container {
+       text-align: center;
+   }
+   
+   .btn-principal {
+       background-color: #007bff;
+       color: white;
+       border: none;
+       padding: 10px 20px;
+       font-size: 16px;
+       cursor: pointer;
+       margin-bottom: 10px;
+   }
+   
+   .btn-secundario {
+       background-color: yellow;
+       color: black;
+       border: 1px solid black;
+       padding: 10px 20px;
+       font-size: 16px;
+       cursor: pointer;
+       margin-bottom: 20px;
+       display: block;
+       margin: 10px auto;
+   }
+   
+   table {
+       width: 100%;
+       border-collapse: collapse;
+   }
+   
+   th, td {
+       border: 1px solid black;
+       padding: 10px;
+       text-align: center;
+   }
+   
+   thead {
+       background-color: #f2f2f2;
+   }
+   
+   .btn-editar, .btn-apagar {
+       background-color: white;
+       border: 1px solid black;
+       padding: 5px 10px;
+       cursor: pointer;
+   }
+   
+   .btn-editar:hover {
+       background-color: #e7e7e7;
+   }
+   
+   .btn-apagar:hover {
+       background-color: #f2f2f2;
+   }
+   
+{% endblock %}
+
+
+{% block conteudo %}
+
+    <div class="container">
+        <button class="btn-principal">BUSCAR AS CAPITAIS DO BRASIL</button>
+        <button class="btn-secundario">BUSCAR</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>NORTE</th>
+                    <th>NORDESTE</th>
+                    <th>SUL</th>
+                    <th>SUDESTE</th>
+                    <th>CENTRO-OESTE</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn-editar">EDITAR</button></td>
+                    <td><button class="btn-apagar">APAGAR</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn-editar">EDITAR</button></td>
+                    <td><button class="btn-apagar">APAGAR</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn-editar">EDITAR</button></td>
+                    <td><button class="btn-apagar">APAGAR</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn-editar">EDITAR</button></td>
+                    <td><button class="btn-apagar">APAGAR</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn-editar">EDITAR</button></td>
+                    <td><button class="btn-apagar">APAGAR</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
