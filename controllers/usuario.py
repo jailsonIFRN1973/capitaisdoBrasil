@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, flash, url_for
 from utils import db, lm
 from models.usuario import Usuario
 from flask import Blueprint
+from flask_login import login_user, logout_user
 import hashlib
 
 bp_usuario = Blueprint("usuario", __name__, template_folder='templates')
@@ -29,8 +30,31 @@ def create():
         db.session.add(u)
         db.session.commit()
        return redirect(url_for('usuario.recovery'))
+       return redirect(url_for('diario.recovery'))
+       
 
-@lm.user_load
+@lm.user_loader
 def load_user(id):
     usuario = Usuario.query.get(id)
-    return usuario
+   return usuario
+
+@bp_usuario.route('/autenticar', methods=['POST'])
+def autenticar():
+    email = request.form['email'] 
+    senha = request.form['senha']
+     usuario = Usuario.query.filter_by(email=email).first()
+
+    print(usuario)
+    if (usuario and usuario.senha == senha):
+        login_user(usuario)
+          return redirect('recovery')
+          return redirect(url_for('diario.recovery'))
+    else:
+        flash('Login ou senha incorretos')
+        return redirect('/login')
+
+@bp_usuario.route('/logoff')
+def logoff():
+    logout_user()
+    flash('Usuário desconectado do sistema')
+    return redirect('/login')
