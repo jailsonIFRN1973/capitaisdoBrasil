@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-from database import db
+from utils import db, lm
 import os
 from flask_migrate import Migrate
 from models import *
@@ -25,6 +25,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = conexao
 
 
 db.init_app(app)
+lm.init_app(app)
 migrate = Migrate(app, db)
 
 @app.route('/add_diario')

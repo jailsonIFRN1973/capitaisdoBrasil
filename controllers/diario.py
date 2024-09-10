@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, flash, url_for
-from database import db
+from utils import db
 from models.diario import Diario
 from flask import Blueprint
 
@@ -37,7 +37,7 @@ def update(id):
         db.session.commit()
         return redirect(url_for('diario.recovery'))
 
-    @bp_diario.route('/delete/<id>', methods=['GET', 'POST'])
+@bp_diario.route('/delete/<id>', methods=['GET', 'POST'])
 def delete(id):
     d = Diario.query.get(id)
 
