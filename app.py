@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for
-
 from utils import db, lm
 import os
 from flask_migrate import Migrate
@@ -60,7 +59,7 @@ def delete_diario():
     d = Diario.query.get(3)
     db.session.delete(d)
     db.session.commit()
-   return 'Dados excluídos com sucesso'
+    return 'Dados excluídos com sucesso'
 
 @app.errorhandler(401)
 def acesso_negado(e):
