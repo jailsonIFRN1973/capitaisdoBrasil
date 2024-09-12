@@ -10,3 +10,5 @@ class Diario(db.Model):
   def __init__(self, titulo, disciplina):
     self.titulo = titulo
     self.disciplina = disciplina
+
+
